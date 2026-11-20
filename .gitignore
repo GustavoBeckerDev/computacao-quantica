@@ -1,0 +1,8 @@
+# Repositórios externos clonados apenas como referência local
+skills-ref/
+
+# Arquivos temporários do sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

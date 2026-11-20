@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Do Bit ao Qubit — Computação Quântica | Unoesc Videira</title>
+
+  <!-- Editorial & Technical Typography (fallbacks nativos caso offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) para o Modo Editorial Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="mode-slide">
+
+  <!-- Barra de progresso superior -->
+  <div class="progress-rail" aria-hidden="true">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <!-- Cabeçalho Técnico Fixo -->
+  <header class="topbar">
+    <div class="brand-lockup">
+      <span class="brand-mark">Q</span>
+      <span>Unoesc Videira</span>
+      <span class="brand-sep hide-sm">/</span>
+      <span class="hide-sm">Arquitetura de Computadores</span>
+      <span class="brand-sep hide-sm">/</span>
+      <span class="hide-sm">Grupo 1</span>
+    </div>
+
+    <div class="topbar-controls">
+      <button class="presenter-pill" id="presenter-pill" title="Integrante responsável por este slide — clique para abrir o roteiro de fala (N)">
+        <span class="presenter-dot" aria-hidden="true"></span>
+        <span class="presenter-kicker">Fala:</span>
+        <strong id="presenter-name">Franklin</strong>
+      </button>
+      <button class="ctrl-btn" id="btn-mode" title="Alternar entre Modo Slide e Modo Scroll (AOS)">
+        Modo Scroll (AOS)
+      </button>
+      <button class="ctrl-btn" id="btn-notes" title="Notas de fala para o Grupo 1 (Tecla N)">
+        Notas [N]
+      </button>
+      <button class="ctrl-btn" id="btn-index" title="Mapa de slides (Tecla G)">
+        Índice [G]
+      </button>
+      <button class="ctrl-btn" id="btn-fullscreen" title="Tela cheia (Tecla F)">
+        Tela Cheia [F]
+      </button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck">
+
+    <!-- ====================================================================
+         SLIDE 01 — CAPA EDITORIAL & TESE
+         ==================================================================== -->
+    <section class="slide active" data-title="Capa — Do Bit ao Qubit">
+      <div class="slide-container">
+        <div class="cover-grid">
+          <div class="cover-main">
+            <div>
+              <div class="section-meta stagger stagger-1">
+                <span class="section-index">01 / 09</span>
+                <span>Ciência da Computação • Arquitetura de Computadores</span>
+              </div>
+
+              <h1 class="cover-title stagger stagger-2">
+                Do Bit ao <em>Qubit</em>
+              </h1>
+
+              <p class="cover-abstract stagger stagger-3">
+                Um guia visual e passo a passo sobre como funcionam os computadores quânticos,
+                por que eles resolvem cálculos impossíveis para os PCs comuns, onde já são usados
+                no mundo e no Brasil e quais desafios ainda precisam ser vencidos.
+              </p>
+            </div>
+
+            <div class="stagger stagger-4">
+              <div class="cover-keywords" style="margin-bottom: 16px;">
+                <span class="tag tag-copper">Computação Quântica</span>
+                <span class="tag tag-cobalt">Mecânica Quântica</span>
+                <span class="tag">Qubits</span>
+                <span class="tag">Superposição &amp; Emaranhamento</span>
+                <span class="tag">Informação Quântica</span>
+              </div>
+
+              <div class="cover-meta-strip">
+                <div>
+                  <div class="meta-cell-label">Instituição</div>
+                  <div class="meta-cell-val">Universidade do Oeste de Santa Catarina — Unoesc Videira</div>
+                </div>
+                <div>
+                  <div class="meta-cell-label">Professor</div>
+                  <div class="meta-cell-val">Prof. Fabiano de Oliveira Wonzoski</div>
+                </div>
+                <div>
+                  <div class="meta-cell-label">Grupo 1</div>
+                  <div class="meta-cell-val">Gustavo Becker, Franklin, Hamós, Erik e Jackson</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <figure class="photo-frame cover-photo stagger stagger-3" data-aos="fade-left">
+            <img src="assets/ibm-quantum-system-one.jpg" alt="Hardware real IBM Quantum System One em câmara criogênica" />
+            <figcaption class="photo-caption">
+              <strong>FIG. 01 — IBM Quantum System One</strong>
+              <span class="tabular">Hardware criogênico real</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 02 — INTRODUÇÃO, PROBLEMA & SUPREMACIA QUÂNTICA
+         ==================================================================== -->
+    <section class="slide" data-title="Introdução & Supremacia Quântica">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">02 / 09</span>
+              <span>Etapa 1 • O que é e qual problema resolve</span>
+            </div>
+            <h2 class="slide-heading">Por que precisamos ir além do <em>computador comum?</em></h2>
+          </div>
+          <span class="tag tag-cobalt">Marco Histórico • 2019</span>
+        </div>
+
+        <div class="intro-layout">
+          <div class="argument-stack">
+            <article class="argument-row stagger stagger-2" data-aos="fade-up">
+              <div class="argument-num tabular">01</div>
+              <div>
+                <h3>Não vai substituir seu notebook ou celular</h3>
+                <p>
+                  A computação quântica ainda está em fase experimental e é usada por grandes
+                  centros e empresas de tecnologia. Ela não serve para tarefas do dia a dia, mas
+                  sim para resolver cálculos gigantescos onde os chips comuns travam.
+                </p>
+              </div>
+            </article>
+
+            <article class="argument-row stagger stagger-3" data-aos="fade-up" data-aos-delay="80">
+              <div class="argument-num tabular">02</div>
+              <div>
+                <h3>De anos de espera para poucos minutos</h3>
+                <p>
+                  Computadores tradicionais trabalham com <strong>bits (0 ou 1)</strong>, um passo
+                  após o outro. Usando as leis da <strong>física quântica</strong>, um computador
+                  quântico consegue lidar com muitas possibilidades ao mesmo tempo, encurtando
+                  drasticamente o tempo de resposta.
+                </p>
+              </div>
+            </article>
+
+            <article class="argument-row stagger stagger-4" data-aos="fade-up" data-aos-delay="140">
+              <div class="argument-num tabular">03</div>
+              <div>
+                <h3>Onde isso faz diferença na prática?</h3>
+                <p>
+                  Em problemas com milhões de combinações: quebrar ou criar novas senhas
+                  (criptografia), analisar grandes volumes de dados, prever o clima, encontrar
+                  melhores rotas e identificar padrões complexos.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <aside class="panel sycamore-dossier stagger stagger-3" data-aos="fade-left">
+            <figure class="photo-frame sycamore-photo">
+              <img src="assets/google-sycamore-chip.jpg" alt="Processador quântico Google Sycamore" />
+              <figcaption class="photo-caption">
+                <strong>FIG. 02 — Chip Google Sycamore</strong>
+                <span class="tabular">53 qubits ativos</span>
+              </figcaption>
+            </figure>
+
+            <div>
+              <span class="tag tag-copper" style="margin-bottom: 8px;">Supremacia Quântica • 2019</span>
+              <p style="font-size: 0.9rem; color: var(--ink-2); line-height: 1.55;">
+                Em 2019, o <strong>Google</strong> provou na prática que a tecnologia funciona:
+                seu chip quântico <strong>Sycamore</strong> completou um cálculo complexo em cerca
+                de <strong>3 minutos</strong> — algo que levaria um tempo impraticável em
+                supercomputadores tradicionais.
+              </p>
+            </div>
+
+            <div class="sycamore-stats">
+              <div class="stat-block">
+                <div class="stat-value tabular">~200 s</div>
+                <div class="stat-label">Tempo do chip Sycamore para resolver o teste</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat-value tabular">2⁵³</div>
+                <div class="stat-label">~9 quatrilhões de combinações ao mesmo tempo</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 03 — DUELO AO VIVO: HARDWARE CLÁSSICO vs PROCESSADOR QUÂNTICO
+         ==================================================================== -->
+    <section class="slide" data-title="Simulação — Clássico vs. Quântico">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">03 / 09</span>
+              <span>Etapa 2 • Na prática: por que é tão mais rápido?</span>
+            </div>
+            <h2 class="slide-heading">Duelo ao Vivo: <em>Computador Comum vs. Quântico</em></h2>
+          </div>
+          <span class="tag tag-emerald">Esquerda: testa 1 por vez • Direita: testa tudo junto</span>
+        </div>
+
+        <div class="panel-lab race-shell stagger stagger-2" data-aos="fade-up">
+          <div class="race-toolbar">
+            <div class="scenario-group" role="tablist" aria-label="Cenários da simulação">
+              <button class="scenario-btn active" data-scenario="routes">1. Rotas (Hyundai / Delta)</button>
+              <button class="scenario-btn" data-scenario="crypto">2. Busca de Chave (Criptografia)</button>
+              <button class="scenario-btn" data-scenario="molecule">3. Simulação Molecular</button>
+            </div>
+
+            <div class="race-actions">
+              <div class="lab-dropdown" id="race-size-dropdown" data-value="144">
+                <button
+                  type="button"
+                  class="lab-dropdown-trigger tabular"
+                  id="race-size-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Selecionar tamanho do espaço de busca"
+                >
+                  <span class="dropdown-prefix">ESPAÇO</span>
+                  <span class="dropdown-value" id="race-size-label">144 estados</span>
+                  <span class="dropdown-pill" id="race-size-pill">~8 qubits</span>
+                  <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+
+                <ul class="lab-dropdown-menu" id="race-size-menu" role="listbox" aria-label="Opções de espaço de busca">
+                  <li class="lab-dropdown-item" role="option" data-value="64" data-label="64 estados" data-pill="6 qubits" aria-selected="false" tabindex="-1">
+                    <div class="dd-item-main">
+                      <strong class="tabular">64 estados</strong>
+                      <span>Grade 16×4 • 6 ciclos quânticos</span>
+                    </div>
+                    <span class="dd-item-badge tabular">6 qubits</span>
+                  </li>
+                  <li class="lab-dropdown-item is-selected" role="option" data-value="144" data-label="144 estados" data-pill="~8 qubits" aria-selected="true" tabindex="-1">
+                    <div class="dd-item-main">
+                      <strong class="tabular">144 estados</strong>
+                      <span>Grade 18×8 • 9 ciclos quânticos</span>
+                    </div>
+                    <span class="dd-item-badge tabular">~8 qubits</span>
+                  </li>
+                  <li class="lab-dropdown-item" role="option" data-value="256" data-label="256 estados" data-pill="8 qubits" aria-selected="false" tabindex="-1">
+                    <div class="dd-item-main">
+                      <strong class="tabular">256 estados</strong>
+                      <span>Grade 32×8 • 13 ciclos quânticos</span>
+                    </div>
+                    <span class="dd-item-badge tabular">8 qubits</span>
+                  </li>
+                </ul>
+              </div>
+              <button class="btn-primary" id="btn-start-race">Iniciar Corrida</button>
+              <button class="btn-ghost" id="btn-reset-race">Reiniciar</button>
+            </div>
+          </div>
+
+          <div class="race-arenas">
+            <!-- Arena Esquerda: CPU Clássica -->
+            <div class="arena-card">
+              <div class="arena-header">
+                <span class="arena-title">Computador Comum (Bits 0 ou 1)</span>
+                <span class="arena-badge classical">Testa 1 opção por vez</span>
+              </div>
+              <canvas id="canvas-classical" class="race-canvas" width="540" height="204"></canvas>
+              <div class="arena-telemetry">
+                <div class="tel-cell">
+                  <div class="tel-label">Opções Testadas</div>
+                  <div class="tel-val accent-copper tabular" id="cl-ops">0 / 144</div>
+                </div>
+                <div class="tel-cell">
+                  <div class="tel-label">Tempo</div>
+                  <div class="tel-val tabular" id="cl-time">0.00 s</div>
+                </div>
+                <div class="tel-cell">
+                  <div class="tel-label">Etapa Atual</div>
+                  <div class="tel-val tabular" id="cl-status">Pronto</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arena Direita: Processador Quântico -->
+            <div class="arena-card">
+              <div class="arena-header">
+                <span class="arena-title">Chip Quântico (Qubits em Paralelo)</span>
+                <span class="arena-badge quantum">Avalia tudo junto e filtra a resposta</span>
+              </div>
+              <canvas id="canvas-quantum" class="race-canvas" width="540" height="204"></canvas>
+              <div class="arena-telemetry">
+                <div class="tel-cell">
+                  <div class="tel-label">Rodadas de Filtro</div>
+                  <div class="tel-val accent-emerald tabular" id="qt-ops">0 ciclos</div>
+                </div>
+                <div class="tel-cell">
+                  <div class="tel-label">Tempo</div>
+                  <div class="tel-val tabular" id="qt-time">0.00 s</div>
+                </div>
+                <div class="tel-cell">
+                  <div class="tel-label">Vantagem</div>
+                  <div class="tel-val accent-emerald tabular" id="qt-status">Pronto</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculadora de Escala Exponencial 2^n -->
+        <div class="scale-strip stagger stagger-3">
+          <div>
+            <div class="slider-head">
+              <label for="qubit-slider">Por que cresce tão rápido? Cada <strong>novo qubit dobra</strong> o total de combinações (2ⁿ)</label>
+              <span class="tag tag-cobalt tabular" id="qubit-count-label">10 qubits</span>
+            </div>
+            <input type="range" id="qubit-slider" class="qubit-range" min="1" max="53" value="10" />
+            <p style="font-size: 0.78rem; color: var(--ink-muted); margin-top: 6px;">
+              Um bit guarda apenas 1 opção por vez. Arraste até <strong>53 qubits</strong> (como o chip Sycamore) e veja o salto!
+            </p>
+          </div>
+
+          <div class="scale-metrics">
+            <div class="scale-box">
+              <div class="meta-cell-label">Computador Comum (por vez)</div>
+              <div class="scale-num tabular" id="classical-cap" style="color: var(--copper);">1 combinação por vez</div>
+            </div>
+            <div class="scale-box">
+              <div class="meta-cell-label">Chip Quântico (ao mesmo tempo)</div>
+              <div class="scale-num tabular" id="quantum-cap">1.024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 04 — OS 4 PRINCÍPIOS FUNDAMENTAIS DA MECÂNICA QUÂNTICA
+         ==================================================================== -->
+    <section class="slide" data-title="Os 4 Princípios Quânticos">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">04 / 09</span>
+              <span>Etapa 3 • Como funciona por dentro (sem complicação)</span>
+            </div>
+            <h2 class="slide-heading">Os 4 segredos da <em>computação quântica</em></h2>
+          </div>
+          <span class="tag tag-copper">Clique em cada um para testar ao vivo</span>
+        </div>
+
+        <div class="principles-grid">
+          <div class="principle-list stagger stagger-2" role="tablist" aria-label="Princípios da mecânica quântica">
+            <button class="principle-btn active" data-principle="superposition">
+              <div class="principle-btn-top">
+                <h3>1. Superposição</h3>
+                <span class="p-code">Como uma moeda girando</span>
+              </div>
+              <p>Enquanto o bit comum é só 0 ou só 1, o qubit mistura 0 e 1 ao mesmo tempo — só escolhe um valor quando fazemos a medição.</p>
+            </button>
+
+            <button class="principle-btn" data-principle="entanglement">
+              <div class="principle-btn-top">
+                <h3>2. Emaranhamento</h3>
+                <span class="p-code">Qubits conectados</span>
+              </div>
+              <p>Dois qubits ficam tão ligados que, mesmo distantes, ao descobrir o valor de um deles, sabemos imediatamente o valor do outro.</p>
+            </button>
+
+            <button class="principle-btn" data-principle="interference">
+              <div class="principle-btn-top">
+                <h3>3. Interferência</h3>
+                <span class="p-code">O "filtro" das respostas</span>
+              </div>
+              <p>Funciona como ondas na água: somamos as ondas para aumentar a chance da resposta certa e cancelamos as respostas erradas.</p>
+            </button>
+
+            <button class="principle-btn" data-principle="decoherence">
+              <div class="principle-btn-top">
+                <h3>4. Decoerência</h3>
+                <span class="p-code">O vilão do cálculo</span>
+              </div>
+              <p>Qualquer calor ou interferência externa "esbarra" no qubit e destrói o estado quântico antes da hora — por isso o isolamento é essencial.</p>
+            </button>
+          </div>
+
+          <div class="panel-lab physics-stage stagger stagger-3" data-aos="fade-left">
+            <div class="arena-header">
+              <span class="arena-title" id="phys-title">Superposição Quântica</span>
+              <span class="arena-badge quantum" id="phys-badge">Girando entre 0 e 1</span>
+            </div>
+
+            <canvas id="physics-canvas" width="580" height="248"></canvas>
+
+            <div class="physics-controls">
+              <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--lab-muted);" id="phys-readout">
+                Chance de dar 0: 50% • Chance de dar 1: 50%
+              </span>
+              <button class="btn-primary" id="btn-phys-action">Medir Qubit (Parar a moeda)</button>
+            </div>
+
+            <div class="physics-note" id="phys-note">
+              <strong>Pense numa moeda girando no ar:</strong> enquanto gira, não é só cara (0) nem só coroa (1).
+              Na hora em que você mede, ela "cai" em um resultado binário normal: <code>0</code> ou <code>1</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 05 — CIRCUITOS QUÂNTICOS & OS 4 TIPOS DE QUBITS
+         ==================================================================== -->
+    <section class="slide" data-title="Circuitos & Tipos de Qubits">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">05 / 09</span>
+              <span>Etapa 4 • Passo a passo de um cálculo &amp; tipos de chips</span>
+            </div>
+            <h2 class="slide-heading">Como um chip quântico calcula e <em>de que ele é feito</em></h2>
+          </div>
+          <span class="tag">4 tecnologias principais</span>
+        </div>
+
+        <div class="pipeline-bar stagger stagger-2" data-aos="fade-up">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--copper-bright); text-transform: uppercase;">
+              As 5 etapas de um cálculo quântico
+            </div>
+            <p style="font-size: 0.88rem; color: #D4DBE8; margin-top: 4px;">
+              Um circuito quântico começa zerado, mistura opções, conecta os qubits,
+              apaga respostas erradas e entrega o resultado final em <strong>0 ou 1</strong>.
+            </p>
+          </div>
+
+          <div class="pipeline-flow">
+            <div class="gate-node"><strong>1. |0⟩</strong> Zera qubits</div>
+            <span>→</span>
+            <div class="gate-node"><strong>2. H</strong> Mistura (0 e 1)</div>
+            <span>→</span>
+            <div class="gate-node"><strong>3. CNOT</strong> Conecta pares</div>
+            <span>→</span>
+            <div class="gate-node"><strong>4. Ψ</strong> Filtra resposta</div>
+            <span>→</span>
+            <div class="gate-node"><strong>5. M</strong> Lê 0 ou 1</div>
+          </div>
+        </div>
+
+        <div class="arch-table-grid">
+          <article class="arch-card stagger stagger-2" data-aos="fade-up">
+            <div>
+              <div class="arch-card-top">
+                <span class="tag tag-copper">Muito frio (~ -273 °C)</span>
+                <h3>Qubits Supercondutores</h3>
+              </div>
+              <p style="margin-top: 12px;">
+                Microcircuitos congelados quase ao zero absoluto. <strong>Ponto forte:</strong>
+                muito rápidos e precisos (usados no Google Sycamore, IBM e na Unicamp).
+              </p>
+            </div>
+            <div class="spec-bars">
+              <div class="spec-row">
+                <div class="spec-head"><span>Velocidade de cálculo</span><span class="tabular">95%</span></div>
+                <div class="spec-track"><div class="spec-fill copper" style="--w: 95%;"></div></div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-head"><span>Tempo sem perder estado</span><span class="tabular">55%</span></div>
+                <div class="spec-track"><div class="spec-fill" style="--w: 55%;"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="arch-card stagger stagger-3" data-aos="fade-up" data-aos-delay="70">
+            <div>
+              <div class="arch-card-top">
+                <span class="tag tag-cobalt">Alta Estabilidade</span>
+                <h3>Íons Aprisionados</h3>
+              </div>
+              <p style="margin-top: 12px;">
+                Átomos reais suspensos no vácuo e controlados por lasers. <strong>Ponto forte:</strong>
+                seguram o dado por mais tempo e com menos erros, mas são mais lentos.
+              </p>
+            </div>
+            <div class="spec-bars">
+              <div class="spec-row">
+                <div class="spec-head"><span>Velocidade de cálculo</span><span class="tabular">48%</span></div>
+                <div class="spec-track"><div class="spec-fill copper" style="--w: 48%;"></div></div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-head"><span>Tempo sem perder estado</span><span class="tabular">96%</span></div>
+                <div class="spec-track"><div class="spec-fill" style="--w: 96%;"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="arch-card stagger stagger-4" data-aos="fade-up" data-aos-delay="140">
+            <div>
+              <div class="arch-card-top">
+                <span class="tag tag-emerald">Mesma base do PC</span>
+                <h3>Pontos Quânticos</h3>
+              </div>
+              <p style="margin-top: 12px;">
+                Chips de silício que prendem um único elétron. <strong>Ponto forte:</strong>
+                aproveitam fábricas de chips comuns, facilitando crescer em grande escala.
+              </p>
+            </div>
+            <div class="spec-bars">
+              <div class="spec-row">
+                <div class="spec-head"><span>Facilidade de escalar</span><span class="tabular">90%</span></div>
+                <div class="spec-track"><div class="spec-fill copper" style="--w: 90%;"></div></div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-head"><span>Uso com fábricas atuais</span><span class="tabular">92%</span></div>
+                <div class="spec-track"><div class="spec-fill" style="--w: 92%;"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="arch-card stagger stagger-5" data-aos="fade-up" data-aos-delay="210">
+            <div>
+              <div class="arch-card-top">
+                <span class="tag">Luz &amp; Fibra Óptica</span>
+                <h3>Fótons (Luz)</h3>
+              </div>
+              <p style="margin-top: 12px;">
+                Usam partículas de luz viajando em fibra óptica. <strong>Ponto forte:</strong>
+                levam dados quânticos a longas distâncias — ideais para internet segura e criptografia.
+              </p>
+            </div>
+            <div class="spec-bars">
+              <div class="spec-row">
+                <div class="spec-head"><span>Envio a longa distância</span><span class="tabular">98%</span></div>
+                <div class="spec-track"><div class="spec-fill copper" style="--w: 98%;"></div></div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-head"><span>Segurança em redes</span><span class="tabular">95%</span></div>
+                <div class="spec-track"><div class="spec-fill" style="--w: 95%;"></div></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 06 — BRASIL NO MAPA (UNICAMP/CAMPINAS) & APLICAÇÕES REAIS
+         ==================================================================== -->
+    <section class="slide" data-title="Brasil (Unicamp) & Aplicações Práticas">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">06 / 09</span>
+              <span>Etapa 5 • Exemplos reais no Brasil e no mundo</span>
+            </div>
+            <h2 class="slide-heading">Onde isso já está sendo usado <em>hoje?</em></h2>
+          </div>
+          <span class="tag tag-emerald">Casos Reais • Brasil &amp; Mundo</span>
+        </div>
+
+        <div class="apps-editorial">
+          <!-- Destaque Brasileiro: Unicamp (Campinas) + CBPF + Polo Regional -->
+          <aside class="brazil-spotlight stagger stagger-2" data-aos="fade-right">
+            <div>
+              <span class="tag tag-copper" style="margin-bottom: 12px;">Exemplo Real no Brasil • Campinas / SP</span>
+              <h3>Unicamp + CBPF: Chip Quântico feito no Brasil</h3>
+              <p style="font-size: 0.85rem; color: var(--lab-muted); margin-top: 8px; line-height: 1.5;">
+                Isso não existe só no exterior: aqui no Brasil, universidades e centros de pesquisa
+                de São Paulo já constroem e estudam chips quânticos de verdade:
+              </p>
+            </div>
+
+            <ul class="brazil-bullets">
+              <li>
+                <strong>Chip criado na Unicamp (com o CBPF):</strong> pesquisadores do Instituto de
+                Física em Campinas fabricaram qubits supercondutores nacionais que funcionam em
+                geladeiras especiais a <strong>-273,13 °C</strong>.
+              </li>
+              <li>
+                <strong>Internet do futuro &amp; programas:</strong> a Unicamp também cria peças
+                ópticas para conectar computadores quânticos por luz e softwares no Instituto de
+                Computação (IC) para facilitar os cálculos.
+              </li>
+              <li>
+                <strong>Campinas e região de Sorocaba:</strong> o <strong>Instituto Eldorado</strong>
+                fechou parceria internacional (IQM) para trazer máquinas reais ao país, e
+                universidades da região de Sorocaba (como a Uniso) já estudam essa arquitetura na prática.
+              </li>
+            </ul>
+          </aside>
+
+          <!-- 6 Casos de Uso Globais do Trabalho -->
+          <div class="usecase-grid stagger stagger-3" data-aos="fade-left">
+            <article class="usecase-card">
+              <h4>Remédios &amp; Vacinas</h4>
+              <p>Simula como átomos e proteínas reagem entre si, acelerando a criação de novos medicamentos sem anos de tentativa e erro.</p>
+              <div class="usecase-proof">Saúde • Simulação de moléculas</div>
+            </article>
+
+            <article class="usecase-card">
+              <h4>Trânsito &amp; Voos</h4>
+              <p>Testa milhares de rotas ao mesmo tempo considerando clima, semáforos e tráfego para achar o caminho mais rápido e barato.</p>
+              <div class="usecase-proof">Exemplos reais: Hyundai &amp; Delta Airlines</div>
+            </article>
+
+            <article class="usecase-card">
+              <h4>Senhas &amp; Segurança Digital</h4>
+              <p>Pode quebrar senhas atuais no futuro; por isso já nascem a <strong>Criptografia Pós-Quântica (PQC)</strong> e canais blindados (<strong>QKD</strong>) que avisam na hora qualquer invasão.</p>
+              <div class="usecase-proof">Proteção: PQC + QKD</div>
+            </article>
+
+            <article class="usecase-card">
+              <h4>Bancos &amp; Fraudes</h4>
+              <p>Calcula riscos financeiros em cenários com trilhões de combinações e ajuda a detectar fraudes em tempo real.</p>
+              <div class="usecase-proof">Exemplo real: Banco HSBC</div>
+            </article>
+
+            <article class="usecase-card">
+              <h4>Clima &amp; Energia Limpa</h4>
+              <p>Cruza enormes volumes de dados para prever tempestades severas mais cedo e equilibrar redes de energia solar e eólica.</p>
+              <div class="usecase-proof">Previsão climática avançada</div>
+            </article>
+
+            <article class="usecase-card">
+              <h4>Inteligência Artificial</h4>
+              <p>Treinar grandes IAs hoje gasta muita energia e tempo; o <strong>Quantum Machine Learning</strong> encontra padrões em paralelo muito mais rápido.</p>
+              <div class="usecase-proof">IA mais rápida e econômica</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 07 — DESAFIOS DE ENGENHARIA & CRIOGENIA
+         ==================================================================== -->
+    <section class="slide" data-title="Desafios de Engenharia">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">07 / 09</span>
+              <span>Etapa 6 • Os obstáculos que ainda precisam ser resolvidos</span>
+            </div>
+            <h2 class="slide-heading">Por que ainda não temos um <em>notebook quântico?</em></h2>
+          </div>
+          <span class="tag tag-vermilion">4 Grandes Desafios</span>
+        </div>
+
+        <div class="challenges-layout">
+          <div class="cryo-column stagger stagger-2" data-aos="fade-right">
+            <figure class="photo-frame cryo-photo">
+              <img src="assets/dilution-refrigerator.jpg" alt="Interior dourado de um refrigerador de diluição criogênico" />
+              <figcaption class="photo-caption">
+                <strong>FIG. 03 — Refrigerador de Diluição</strong>
+                <span class="tabular">Mais frio que o espaço sideral</span>
+              </figcaption>
+            </figure>
+
+            <div class="thermal-ladder">
+              <div class="thermal-step">
+                <div class="thermal-temp tabular">27 °C</div>
+                <div class="thermal-desc">Topo (ambiente)</div>
+              </div>
+              <div class="thermal-step">
+                <div class="thermal-temp tabular">-269 °C</div>
+                <div class="thermal-desc">Hélio líquido (4 K)</div>
+              </div>
+              <div class="thermal-step">
+                <div class="thermal-temp tabular">-273 °C</div>
+                <div class="thermal-desc">Chip na base (~0 absoluto)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="obstacles-grid stagger stagger-3" data-aos="fade-left">
+            <article class="obstacle-card vermilion">
+              <h3>1. Qubits são muito sensíveis</h3>
+              <p>
+                Qualquer mudança mínima de temperatura ou sinal eletromagnético atrapalha o cálculo
+                e gera erro (decoerência). Manter o qubit estável por mais tempo ainda é o maior desafio.
+              </p>
+            </article>
+
+            <article class="obstacle-card cobalt">
+              <h3>2. Difícil crescer sem aumentar erros</h3>
+              <p>
+                Para colocar mais qubits juntos e resolver problemas maiores, precisamos de métodos
+                especiais que corrigem falhas sem quebrar a superposição:
+              </p>
+              <div class="code-tags">
+                <span class="tag tag-cobalt">Código de Shor</span>
+                <span class="tag tag-cobalt">Código de Steane</span>
+                <span class="tag tag-cobalt">Código de Superfície</span>
+              </div>
+            </article>
+
+            <article class="obstacle-card copper">
+              <h3>3. Frio extremo e falta de padrão</h3>
+              <p>
+                Ainda não existe um único modelo vencedor (supercondutores, íons aprisionados,
+                qubits topológicos). Os supercondutores exigem refrigeradores enormes e caríssimos
+                perto de <strong>-273 °C</strong>.
+              </p>
+            </article>
+
+            <article class="obstacle-card">
+              <h3>4. Custo altíssimo e poucos especialistas</h3>
+              <p>
+                Hoje só grandes empresas, governos e universidades de ponta conseguem bancar essa
+                estrutura: o investimento é alto, o retorno demora e faltam profissionais treinados.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 08 — TENDÊNCIAS FUTURAS (NISQ -> FTQC)
+         ==================================================================== -->
+    <section class="slide" data-title="Tendências Futuras">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">08 / 09</span>
+              <span>Etapa 7 • O que vem pela frente</span>
+            </div>
+            <h2 class="slide-heading">Os próximos passos da <em>computação quântica</em></h2>
+          </div>
+          <span class="tag tag-cobalt">Linha do Tempo</span>
+        </div>
+
+        <div class="timeline-track">
+          <article class="horizon-card stagger stagger-2" data-aos="fade-up">
+            <span class="horizon-tag">Etapa 1 • Curto / Médio Prazo</span>
+            <h3>Computação Híbrida</h3>
+            <p>
+              Os dois mundos vão trabalhar juntos: <strong>supercomputadores comuns</strong> cuidam
+              do trabalho geral e chamam o <strong>chip quântico</strong> só para a parte pesada do cálculo.
+            </p>
+          </article>
+
+          <article class="horizon-card stagger stagger-3" data-aos="fade-up" data-aos-delay="70">
+            <span class="horizon-tag">Etapa 2 • Ciência Acelerada</span>
+            <h3>Do Sycamore às descobertas</h3>
+            <p>
+              Seguindo o caminho aberto pelo <strong>Google Sycamore</strong>, chips quânticos vão
+              se tornar ferramenta essencial em laboratórios para resolver problemas hoje impossíveis.
+            </p>
+          </article>
+
+          <article class="horizon-card stagger stagger-4" data-aos="fade-up" data-aos-delay="140">
+            <span class="horizon-tag">Etapa 3 • Próximas Décadas</span>
+            <h3>Chips que se corrigem (FTQC)</h3>
+            <p>
+              Sairemos da fase atual ainda sensível a erros (<strong>NISQ</strong>) para máquinas
+              <strong>tolerantes a falhas (FTQC)</strong>, usando qubits lógicos muito mais estáveis.
+            </p>
+          </article>
+
+          <article class="horizon-card stagger stagger-5" data-aos="fade-up" data-aos-delay="210">
+            <span class="horizon-tag">Etapa 4 • Mundo Conectado</span>
+            <h3>Novas senhas &amp; Internet Quântica</h3>
+            <p>
+              A troca global para <strong>Criptografia Pós-Quântica (PQC)</strong> será obrigatória,
+              enquanto começam as primeiras conexões à distância usando luz (<strong>Internet Quântica</strong>).
+            </p>
+          </article>
+        </div>
+
+        <div class="future-synthesis stagger stagger-5" data-aos="fade-up">
+          <p>
+            <strong>Resumo para levar da aula:</strong> no computador comum, dobrar a capacidade
+            exige dobrar o hardware. Na computação quântica, basta adicionar <strong>1 único qubit
+            a mais</strong> para dobrar o total de possibilidades processadas ao mesmo tempo.
+          </p>
+          <div class="doubling-badge">
+            <strong class="tabular">+1 Qubit = 2×</strong>
+            <span>Dobra a capacidade de estados</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 09 — REFERÊNCIAS BIBLIOGRÁFICAS & ENCERRAMENTO
+         ==================================================================== -->
+    <section class="slide" data-title="Referências & Encerramento">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">09 / 09</span>
+              <span>Referências Bibliográficas &amp; Créditos</span>
+            </div>
+            <h2 class="slide-heading">Fontes consultadas &amp; <em>equipe</em></h2>
+          </div>
+          <button class="ctrl-btn" id="btn-jump-demo">Rever Simulação [Slide 03]</button>
+        </div>
+
+        <div class="refs-layout">
+          <div class="bib-list stagger stagger-2" data-aos="fade-up">
+            <article class="bib-entry">
+              <p>
+                <strong>SCHNEIDER, Josh; SMALLEY, Ian.</strong> O que é computação quântica?.
+                <em>IBM Think</em>, 2025. Acesso em: 10 nov. 2026.
+              </p>
+              <a href="https://www.ibm.com/br-pt/think/topics/quantum-computing" target="_blank" rel="noopener">
+                https://www.ibm.com/br-pt/think/topics/quantum-computing
+              </a>
+            </article>
+
+            <article class="bib-entry">
+              <p>
+                <strong>CANOREA, Helena.</strong> Computação Quântica: Potencial e Desafios Futuros.
+                <em>Plain Concepts</em>, 2026. Acesso em: 10 nov. 2026.
+              </p>
+              <a href="https://www.plainconcepts.com/quantum-computing-potential-challenges/" target="_blank" rel="noopener">
+                https://www.plainconcepts.com/quantum-computing-potential-challenges/
+              </a>
+            </article>
+
+            <article class="bib-entry">
+              <p>
+                <strong>LOPES, André.</strong> Computação quântica, criptografia e medicamentos:
+                como a IA encurtou a pesquisa científica. <em>Exame</em>, 4 nov. 2026. Acesso em: 10 nov. 2026.
+              </p>
+              <a href="https://exame.com/inteligencia-artificial/computacao-quantica-criptografia-e-medicamentos-como-a-ia-encurtou-a-pesquisa-cientifica/" target="_blank" rel="noopener">
+                https://exame.com/inteligencia-artificial/computacao-quantica-criptografia-e-medicamentos-como-a-ia-encurtou-a-pesquisa-cientifica/
+              </a>
+            </article>
+
+            <article class="bib-entry" style="border-left-color: var(--copper);">
+              <p>
+                <strong>FONTE COMPLEMENTAR (BRASIL):</strong> Pesquisas em chips quânticos supercondutores
+                e redes fotônicas — <em>IFGW / IC-Unicamp, CBPF e Instituto Eldorado (Campinas/SP)</em>.
+                Fotografias de hardware: Wikimedia Commons (CC BY / Domínio Público).
+              </p>
+            </article>
+          </div>
+
+          <aside class="credits-card stagger stagger-3" data-aos="fade-left">
+            <div>
+              <span class="tag tag-copper">Obrigado pela atenção</span>
+              <h3 style="font-family: var(--font-display); font-size: 1.55rem; margin-top: 12px;">
+                Do Bit ao Qubit
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--lab-muted); margin-top: 6px;">
+                Unoesc Videira • Ciência da Computação<br />
+                Arquitetura de Computadores<br />
+                Prof. Fabiano de Oliveira Wonzoski
+              </p>
+            </div>
+
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--copper-bright); text-transform: uppercase;">
+                Integrantes — Grupo 1
+              </div>
+              <div class="member-chips">
+                <span class="member-chip">Gustavo Becker</span>
+                <span class="member-chip">Franklin</span>
+                <span class="member-chip">Hamós</span>
+                <span class="member-chip">Erik</span>
+                <span class="member-chip">Jackson</span>
+              </div>
+            </div>
+
+            <button class="btn-primary" id="btn-restart" style="width: 100%;">
+              Voltar ao Slide 01
+            </button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Barra de Navegação Inferior (Modo Slide) -->
+  <footer class="bottom-bar" id="bottom-bar">
+    <div class="slide-title-indicator" id="slide-label">01 — Capa — Do Bit ao Qubit</div>
+
+    <div class="nav-center">
+      <button class="nav-btn" id="btn-prev" aria-label="Slide anterior">←</button>
+      <div class="nav-dots" id="nav-dots" role="tablist" aria-label="Navegação por slides"></div>
+      <button class="nav-btn" id="btn-next" aria-label="Próximo slide">→</button>
+    </div>
+
+    <div class="counter-readout tabular" id="slide-counter">01 / 09</div>
+  </footer>
+
+  <!-- Painel de Notas do Apresentador (Roteiro sugerido para os 5 integrantes) -->
+  <aside class="notes-panel" id="notes-panel" aria-live="polite">
+    <div class="notes-head">
+      <span id="notes-speaker">Roteiro de Fala — Grupo 1</span>
+      <button class="btn-ghost" id="btn-close-notes" style="height: 24px; padding: 0 8px;">Fechar</button>
+    </div>
+    <p class="notes-text" id="notes-text"></p>
+  </aside>
+
+  <!-- Modal Índice de Slides -->
+  <div class="index-modal" id="index-modal" role="dialog" aria-modal="true" aria-label="Índice de slides">
+    <div class="index-box">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div class="section-meta"><span class="section-index">ÍNDICE</span><span>Ir diretamente para qualquer seção</span></div>
+        </div>
+        <button class="ctrl-btn" id="btn-close-index">Fechar [ESC]</button>
+      </div>
+      <div class="index-grid" id="index-grid"></div>
+    </div>
+  </div>
+
+  <!-- Bibliotecas de Motion (GSAP + AOS) com fallback seguro se offline -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
