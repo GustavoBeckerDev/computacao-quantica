@@ -18,48 +18,48 @@
   // Roteiro de fala simples e natural, com divisão oficial para os 5 integrantes do Grupo 1
   const speakerNotes = [
     {
-      name: 'Franklin',
-      speaker: 'Franklin • Capa (Abertura)',
+      name: 'Hamós',
+      speaker: 'Hamós • Capa (Abertura)',
       text: 'Diga assim: "Hoje vamos sair do bit tradicional que a gente conhece na disciplina para entender o qubit. Nosso objetivo é explicar de forma simples o que é computação quântica, como ela funciona por dentro, onde já existe na prática e o que ainda falta para ela chegar mais perto da gente."'
     },
     {
-      name: 'Franklin',
-      speaker: 'Franklin • Etapa 1 (O Problema & Sycamore)',
-      text: 'Explique direto: "O computador quântico não veio substituir o seu notebook. Ele existe porque problemas com milhões de combinações travam os chips comuns. Em 2019, o Google provou isso na prática com esse chip real na foto, o Sycamore: ele resolveu em ~3 minutos um cálculo que levaria um tempo absurdo em supercomputadores comuns." (Passa a fala para o Hamós.)'
-    },
-    {
       name: 'Hamós',
-      speaker: 'Hamós • Etapa 2 (Duelo ao Vivo + 2ⁿ)',
-      text: 'CLIQUE EM "INICIAR CORRIDA"! Enquanto anima, explique: "Na esquerda, o computador comum testa uma opção por vez até achar a resposta. Na direita, o chip quântico coloca todas as opções juntas, reforça a certa e apaga as erradas — terminando em muito menos passos. Depois arraste a barra até 53 qubits para mostrar que cada novo qubit dobra a capacidade." (Passa a fala para o Erik.)'
-    },
-    {
-      name: 'Erik',
-      speaker: 'Erik • Etapa 3 (Os 4 Segredos)',
-      text: 'Use analogias clicando em cada botão: (1) Superposição = moeda girando (0 e 1 ao mesmo tempo até você parar); (2) Emaranhamento = duas moedas conectadas à distância; (3) Interferência = ondas que reforçam a resposta certa e cancelam as erradas; (4) Decoerência = calor ou vibração estragando o cálculo. (Passa a fala para o Gustavo.)'
+      speaker: 'Hamós • Etapa 1 (O Problema & Sycamore)',
+      text: 'Explique direto: "O computador quântico não veio substituir o seu notebook. Ele existe porque problemas com milhões de combinações travam os chips comuns. Em 2019, o Google provou isso na prática com esse chip real na foto, o Sycamore: ele resolveu em ~3 minutos um cálculo que levaria um tempo absurdo em supercomputadores comuns." (Passa a fala para o Gustavo.)'
     },
     {
       name: 'Gustavo Becker',
-      speaker: 'Gustavo Becker • Etapa 4 (Circuito & 4 Tipos de Chips)',
+      speaker: 'Gustavo Becker • Etapa 2 (Duelo ao Vivo + 2ⁿ)',
+      text: 'CLIQUE EM "INICIAR CORRIDA"! Enquanto anima, explique: "Na esquerda, o computador comum testa uma opção por vez até achar a resposta. Na direita, o chip quântico coloca todas as opções juntas, reforça a certa e apaga as erradas — terminando em muito menos passos. Depois arraste a barra até 53 qubits para mostrar que cada novo qubit dobra a capacidade." (Segue no próximo slide.)'
+    },
+    {
+      name: 'Gustavo Becker',
+      speaker: 'Gustavo Becker • Etapa 3 (Os 4 Segredos)',
+      text: 'Use analogias clicando em cada botão: (1) Superposição = moeda girando (0 e 1 ao mesmo tempo até você parar); (2) Emaranhamento = duas moedas conectadas à distância; (3) Interferência = ondas que reforçam a resposta certa e cancelam as erradas; (4) Decoerência = calor ou vibração estragando o cálculo. (Passa a fala para o Franklin.)'
+    },
+    {
+      name: 'Franklin',
+      speaker: 'Franklin • Etapa 4 (Circuito & 4 Tipos de Chips)',
       text: 'Aponte a barra escura no topo: "Todo cálculo quântico segue 5 passos: zera os qubits, mistura as opções, conecta os pares, filtra a resposta certa e lê 0 ou 1." Depois compare os 4 jeitos de construir um qubit: supercondutor (muito rápido), íons (estável), pontos quânticos (parecido com chip de silício) e fótons (luz para redes). (Segue no próximo slide.)'
     },
     {
-      name: 'Gustavo Becker',
-      speaker: 'Gustavo Becker • Etapa 5 (Brasil: Unicamp & Aplicações)',
+      name: 'Franklin',
+      speaker: 'Franklin • Etapa 5 (Brasil: Unicamp & Aplicações)',
       text: 'Comece pelo quadro escuro: "Isso não é só lá fora! Na Unicamp em Campinas, junto com o CBPF, já fabricaram chip quântico supercondutor nacional a -273 °C, além de projetos no Instituto Eldorado e estudos na região de Sorocaba." Depois passe pelos 6 exemplos reais: remédios, Hyundai/Delta, senhas (PQC/QKD), HSBC, clima e IA. (Passa a fala para o Jackson.)'
     },
     {
       name: 'Jackson',
       speaker: 'Jackson • Etapa 6 (Desafios & Criogenia)',
-      text: 'Mostre a foto dourada do refrigerador: "Por que ninguém tem um notebook quântico? Porque o chip precisa ficar a -273 °C — mais frio que o espaço! Além disso, qualquer ruído gera erro, o que obriga a usar códigos especiais de correção (Shor, Steane e Superfície), ainda não há um único modelo padrão e o custo é altíssimo."'
+      text: 'Mostre a foto dourada do refrigerador: "Por que ninguém tem um notebook quântico? Porque o chip precisa ficar a -273 °C — mais frio que o espaço! Além disso, qualquer ruído gera erro, o que obriga a usar códigos especiais de correção (Shor, Steane e Superfície), ainda não há um único modelo padrão e o custo é altíssimo." (Passa a fala para o Erik.)'
     },
     {
-      name: 'Jackson',
-      speaker: 'Jackson • Etapa 7 (Futuro: Híbrida, NISQ → FTQC)',
-      text: 'Feche em 4 etapas simples: "Primeiro veremos computação híbrida (PC clássico + chip quântico juntos); depois a ciência acelerando; nas próximas décadas chips que corrigem os próprios erros (NISQ para FTQC); e a troca obrigatória das senhas do mundo (PQC) junto com os primeiros passos da Internet Quântica."'
+      name: 'Erik',
+      speaker: 'Erik • Etapa 7 (Futuro: Híbrida, NISQ → FTQC)',
+      text: 'Feche em 4 etapas simples: "Primeiro veremos computação híbrida (PC clássico + chip quântico juntos); depois a ciência acelerando; nas próximas décadas chips que corrigem os próprios erros (NISQ para FTQC); e a troca obrigatória das senhas do mundo (PQC) junto com os primeiros passos da Internet Quântica." (Segue para o encerramento.)'
     },
     {
-      name: 'Jackson + Grupo 1',
-      speaker: 'Jackson + Grupo 1 • Encerramento & Referências',
+      name: 'Erik',
+      speaker: 'Erik + Grupo 1 • Encerramento & Referências',
       text: 'Mostre as fontes consultadas (IBM Think, Plain Concepts, Exame e o destaque nacional da Unicamp/CBPF), agradeça ao Prof. Fabiano e à turma e abra para perguntas com todo o Grupo 1.'
     }
   ];

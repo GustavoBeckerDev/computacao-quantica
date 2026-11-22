@@ -45,11 +45,11 @@
 
 | Integrante | Slides | Etapas | Foco da Apresentação |
 | :--- | :--- | :--- | :--- |
-| **Franklin** | 01 e 02 | Capa + **Etapa 1** | Abertura do trabalho, problema dos chips clássicos e marco do **Google Sycamore (2019)** |
-| **Hamós** | 03 | **Etapa 2** | **Duelo ao Vivo** (Computador Comum vs. Quântico) + Calculadora exponencial $2^n$ (até 53 qubits) |
-| **Erik** | 04 | **Etapa 3** | **Os 4 Segredos** no laboratório interativo (Superposição, Emaranhamento, Interferência e Decoerência) |
-| **Gustavo Becker** | 05 e 06 | **Etapa 4** + **Etapa 5** | 5 passos do circuito quântico + 4 tipos de chips (Supercondutores, Íons, Pontos Quânticos, Fótons) + **Destaque Brasil (Unicamp/Campinas & Sorocaba)** e 6 casos reais |
-| **Jackson** | 07, 08 e 09 | **Etapa 6** + **Etapa 7** + Encerramento | Desafios e criogenia (-273 °C / códigos de Shor, Steane e Superfície), Tendências Futuras (Híbrida, NISQ → FTQC, PQC, Internet Quântica) e Referências com o Grupo 1 |
+| **Hamós** | 01 e 02 | Capa + **Etapa 1** | Abertura do trabalho, problema dos chips clássicos e marco do **Google Sycamore (2019)** |
+| **Gustavo Becker** | 03 e 04 | **Etapa 2** + **Etapa 3** | **Duelo ao Vivo** (Comum vs. Quântico) + Calculadora $2^n$ e **Os 4 Segredos** no laboratório interativo |
+| **Franklin** | 05 e 06 | **Etapa 4** + **Etapa 5** | 5 passos do circuito + 4 tipos de chips e **Destaque Brasil (Unicamp/Campinas & Sorocaba)** + 6 casos reais |
+| **Jackson** | 07 | **Etapa 6** | Desafios e criogenia (-273 °C / códigos de Shor, Steane e Superfície, infraestrutura e custos) |
+| **Erik** | 08 e 09 | **Etapa 7** + Encerramento | Tendências Futuras (Híbrida, NISQ → FTQC, PQC, Internet Quântica) e Referências com o Grupo 1 |
 
 *(Todos os nomes e roteiros de fala estão sincronizados nas Notas do Apresentador — tecla `N` — em `script.js`.)*
 
