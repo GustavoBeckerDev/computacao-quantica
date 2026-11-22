@@ -632,7 +632,7 @@
     const n = parseInt(qubitSlider.value, 10);
     const states = Math.pow(2, n);
     qubitCountLabel.textContent = n === 53 ? '53 qubits (Sycamore)' : `${n} ${n === 1 ? 'qubit' : 'qubits'}`;
-    classicalCapEl.textContent = `1 estado (${n} bits por ciclo)`;
+    classicalCapEl.textContent = `1 por vez (${n} ${n === 1 ? 'bit' : 'bits'})`;
     quantumCapEl.textContent = states.toLocaleString('pt-BR');
   }
 
