@@ -207,15 +207,90 @@
     </section>
 
     <!-- ====================================================================
-         SLIDE 03 — DUELO AO VIVO: HARDWARE CLÁSSICO vs PROCESSADOR QUÂNTICO
+         SLIDE 03 — OS 4 PRINCÍPIOS FUNDAMENTAIS DA MECÂNICA QUÂNTICA
+         ==================================================================== -->
+    <section class="slide" data-title="Os 4 Princípios Quânticos">
+      <div class="slide-container">
+        <div class="head-row stagger stagger-1">
+          <div>
+            <div class="section-meta">
+              <span class="section-index">03 / 09</span>
+              <span>Etapa 2 • Como funciona por dentro (sem complicação)</span>
+            </div>
+            <h2 class="slide-heading">Os 4 segredos da <em>computação quântica</em></h2>
+          </div>
+          <span class="tag tag-copper">Clique em cada um para testar ao vivo</span>
+        </div>
+
+        <div class="principles-grid">
+          <div class="principle-list stagger stagger-2" role="tablist" aria-label="Princípios da mecânica quântica">
+            <button class="principle-btn active" data-principle="superposition">
+              <div class="principle-btn-top">
+                <h3>1. Superposição</h3>
+                <span class="p-code">Como uma moeda girando</span>
+              </div>
+              <p>Enquanto o bit comum é só 0 ou só 1, o qubit mistura 0 e 1 ao mesmo tempo — só escolhe um valor quando fazemos a medição.</p>
+            </button>
+
+            <button class="principle-btn" data-principle="entanglement">
+              <div class="principle-btn-top">
+                <h3>2. Emaranhamento</h3>
+                <span class="p-code">Qubits conectados</span>
+              </div>
+              <p>Dois qubits ficam tão ligados que, mesmo distantes, ao descobrir o valor de um deles, sabemos imediatamente o valor do outro.</p>
+            </button>
+
+            <button class="principle-btn" data-principle="interference">
+              <div class="principle-btn-top">
+                <h3>3. Interferência</h3>
+                <span class="p-code">O "filtro" das respostas</span>
+              </div>
+              <p>Funciona como ondas na água: somamos as ondas para aumentar a chance da resposta certa e cancelamos as respostas erradas.</p>
+            </button>
+
+            <button class="principle-btn" data-principle="decoherence">
+              <div class="principle-btn-top">
+                <h3>4. Decoerência</h3>
+                <span class="p-code">O vilão do cálculo</span>
+              </div>
+              <p>Qualquer calor ou interferência externa "esbarra" no qubit e destrói o estado quântico antes da hora — por isso o isolamento é essencial.</p>
+            </button>
+          </div>
+
+          <div class="panel-lab physics-stage stagger stagger-3" data-aos="fade-left">
+            <div class="arena-header">
+              <span class="arena-title" id="phys-title">Superposição Quântica</span>
+              <span class="arena-badge quantum" id="phys-badge">Girando entre 0 e 1</span>
+            </div>
+
+            <canvas id="physics-canvas" width="580" height="248"></canvas>
+
+            <div class="physics-controls">
+              <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--lab-muted);" id="phys-readout">
+                Chance de dar 0: 50% • Chance de dar 1: 50%
+              </span>
+              <button class="btn-primary" id="btn-phys-action">Medir Qubit (Parar a moeda)</button>
+            </div>
+
+            <div class="physics-note" id="phys-note">
+              <strong>Pense numa moeda girando no ar:</strong> enquanto gira, não é só cara (0) nem só coroa (1).
+              Na hora em que você mede, ela "cai" em um resultado binário normal: <code>0</code> ou <code>1</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 04 — DUELO AO VIVO: HARDWARE CLÁSSICO vs PROCESSADOR QUÂNTICO
          ==================================================================== -->
     <section class="slide" data-title="Simulação — Clássico vs. Quântico">
       <div class="slide-container">
         <div class="head-row stagger stagger-1">
           <div>
             <div class="section-meta">
-              <span class="section-index">03 / 09</span>
-              <span>Etapa 2 • Na prática: por que é tão mais rápido?</span>
+              <span class="section-index">04 / 09</span>
+              <span>Etapa 3 • Na prática: por que é tão mais rápido?</span>
             </div>
             <h2 class="slide-heading">Duelo ao Vivo: <em>Computador Comum vs. Quântico</em></h2>
           </div>
@@ -347,81 +422,6 @@
             <div class="scale-box">
               <div class="meta-cell-label">Chip Quântico (ao mesmo tempo)</div>
               <div class="scale-num tabular" id="quantum-cap">1.024</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SLIDE 04 — OS 4 PRINCÍPIOS FUNDAMENTAIS DA MECÂNICA QUÂNTICA
-         ==================================================================== -->
-    <section class="slide" data-title="Os 4 Princípios Quânticos">
-      <div class="slide-container">
-        <div class="head-row stagger stagger-1">
-          <div>
-            <div class="section-meta">
-              <span class="section-index">04 / 09</span>
-              <span>Etapa 3 • Como funciona por dentro (sem complicação)</span>
-            </div>
-            <h2 class="slide-heading">Os 4 segredos da <em>computação quântica</em></h2>
-          </div>
-          <span class="tag tag-copper">Clique em cada um para testar ao vivo</span>
-        </div>
-
-        <div class="principles-grid">
-          <div class="principle-list stagger stagger-2" role="tablist" aria-label="Princípios da mecânica quântica">
-            <button class="principle-btn active" data-principle="superposition">
-              <div class="principle-btn-top">
-                <h3>1. Superposição</h3>
-                <span class="p-code">Como uma moeda girando</span>
-              </div>
-              <p>Enquanto o bit comum é só 0 ou só 1, o qubit mistura 0 e 1 ao mesmo tempo — só escolhe um valor quando fazemos a medição.</p>
-            </button>
-
-            <button class="principle-btn" data-principle="entanglement">
-              <div class="principle-btn-top">
-                <h3>2. Emaranhamento</h3>
-                <span class="p-code">Qubits conectados</span>
-              </div>
-              <p>Dois qubits ficam tão ligados que, mesmo distantes, ao descobrir o valor de um deles, sabemos imediatamente o valor do outro.</p>
-            </button>
-
-            <button class="principle-btn" data-principle="interference">
-              <div class="principle-btn-top">
-                <h3>3. Interferência</h3>
-                <span class="p-code">O "filtro" das respostas</span>
-              </div>
-              <p>Funciona como ondas na água: somamos as ondas para aumentar a chance da resposta certa e cancelamos as respostas erradas.</p>
-            </button>
-
-            <button class="principle-btn" data-principle="decoherence">
-              <div class="principle-btn-top">
-                <h3>4. Decoerência</h3>
-                <span class="p-code">O vilão do cálculo</span>
-              </div>
-              <p>Qualquer calor ou interferência externa "esbarra" no qubit e destrói o estado quântico antes da hora — por isso o isolamento é essencial.</p>
-            </button>
-          </div>
-
-          <div class="panel-lab physics-stage stagger stagger-3" data-aos="fade-left">
-            <div class="arena-header">
-              <span class="arena-title" id="phys-title">Superposição Quântica</span>
-              <span class="arena-badge quantum" id="phys-badge">Girando entre 0 e 1</span>
-            </div>
-
-            <canvas id="physics-canvas" width="580" height="248"></canvas>
-
-            <div class="physics-controls">
-              <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--lab-muted);" id="phys-readout">
-                Chance de dar 0: 50% • Chance de dar 1: 50%
-              </span>
-              <button class="btn-primary" id="btn-phys-action">Medir Qubit (Parar a moeda)</button>
-            </div>
-
-            <div class="physics-note" id="phys-note">
-              <strong>Pense numa moeda girando no ar:</strong> enquanto gira, não é só cara (0) nem só coroa (1).
-              Na hora em que você mede, ela "cai" em um resultado binário normal: <code>0</code> ou <code>1</code>.
             </div>
           </div>
         </div>
@@ -819,7 +819,7 @@
             </div>
             <h2 class="slide-heading">Fontes consultadas &amp; <em>equipe</em></h2>
           </div>
-          <button class="ctrl-btn" id="btn-jump-demo">Rever Simulação [Slide 03]</button>
+          <button class="ctrl-btn" id="btn-jump-demo">Rever Simulação [Slide 04]</button>
         </div>
 
         <div class="refs-layout">

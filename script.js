@@ -29,13 +29,13 @@
     },
     {
       name: 'Gustavo Becker',
-      speaker: 'Gustavo Becker • Etapa 2 (Duelo ao Vivo + 2ⁿ)',
-      text: 'CLIQUE EM "INICIAR CORRIDA"! Enquanto anima, explique: "Na esquerda, o computador comum testa uma opção por vez até achar a resposta. Na direita, o chip quântico coloca todas as opções juntas, reforça a certa e apaga as erradas — terminando em muito menos passos. Depois arraste a barra até 53 qubits para mostrar que cada novo qubit dobra a capacidade." (Segue no próximo slide.)'
+      speaker: 'Gustavo Becker • Etapa 2 (Os 4 Segredos)',
+      text: 'Use analogias clicando em cada botão: (1) Superposição = moeda girando (0 e 1 ao mesmo tempo até você parar); (2) Emaranhamento = duas moedas conectadas à distância; (3) Interferência = ondas que reforçam a resposta certa e cancelam as erradas; (4) Decoerência = calor ou vibração estragando o cálculo. (Segue no próximo slide para mostrar isso na prática.)'
     },
     {
       name: 'Gustavo Becker',
-      speaker: 'Gustavo Becker • Etapa 3 (Os 4 Segredos)',
-      text: 'Use analogias clicando em cada botão: (1) Superposição = moeda girando (0 e 1 ao mesmo tempo até você parar); (2) Emaranhamento = duas moedas conectadas à distância; (3) Interferência = ondas que reforçam a resposta certa e cancelam as erradas; (4) Decoerência = calor ou vibração estragando o cálculo. (Passa a fala para o Franklin.)'
+      speaker: 'Gustavo Becker • Etapa 3 (Duelo ao Vivo + 2ⁿ)',
+      text: 'CLIQUE EM "INICIAR CORRIDA"! Enquanto anima, explique: "Na esquerda, o computador comum testa uma opção por vez até achar a resposta. Na direita, o chip quântico coloca todas as opções juntas (superposição), reforça a certa e apaga as erradas (interferência) — terminando em muito menos passos. Depois arraste a barra até 53 qubits para mostrar que cada novo qubit dobra a capacidade." (Passa a fala para o Franklin.)'
     },
     {
       name: 'Franklin',
@@ -238,7 +238,7 @@
   });
 
   document.getElementById('btn-restart').addEventListener('click', () => goToSlide(0));
-  document.getElementById('btn-jump-demo').addEventListener('click', () => goToSlide(2));
+  document.getElementById('btn-jump-demo').addEventListener('click', () => goToSlide(3));
 
   document.addEventListener('keydown', (e) => {
     if (e.target && (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName) || e.target.closest('.lab-dropdown'))) return;
